@@ -1,0 +1,29 @@
+<%= form_for(@quest) do |f| %>
+  <% if @quest.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@quest.errors.count, "error") %> prohibited this quest from being saved:</h2>
+
+      <ul>
+      <% @quest.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.text_field :title, :value => "Title" %> <br/>
+  <%= f.text_area :description, :value => "Description" %> <br/>
+  <%= f.label :minimum_datapoints %><%= f.text_field :minimum_datapoints, :value => "0" %> <br/>
+  <input id="quest_reward" name="quest[reward]" type="range" min="0" max=<%= "#{@user.experience}" %> step="10" value="0"><span id="reward_total">0</span>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#quest_reward').change(function() {
+        $('#reward_total').text($('#quest_reward')[0].value);
+      });
+    });
+  </script>

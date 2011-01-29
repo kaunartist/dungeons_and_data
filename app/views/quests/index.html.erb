@@ -1,0 +1,21 @@
+<h1>Listing quests</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @quests.each do |quest| %>
+  <tr>
+    <td><%= link_to 'Show', quest %></td>
+    <td><%= link_to 'Edit', edit_quest_path(quest) %></td>
+    <td><%= link_to 'Destroy', quest, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Quest', new_quest_path %>

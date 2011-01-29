@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+Title: <%= @quest.title %><br/>
+Description: <%= @quest.description %><br/>
+Datapoints needed to complete: <%= @quest.minimum_datapoints %><br/>
+Bounty: <%= @quest.reward %><br/>
+
+
+<%= link_to 'Edit', edit_quest_path(@quest) %> |
+<%= link_to 'Back', quests_path %>
