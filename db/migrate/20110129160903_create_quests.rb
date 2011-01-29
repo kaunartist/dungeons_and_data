@@ -1,14 +1,17 @@
 class CreateQuests < ActiveRecord::Migration
   def self.up
     create_table :quests do |t|
-      t.string :title
-      t.text :description
-      t.integer :minimum_datapoints
-      t.time :expired_at
-      t.integer :reward_id
+      t.string :title, :null => false
+      t.text :description, :null => false
+      t.integer :minimum_datapoints, :null => false
+      t.time :expired_at, :null => false
+      t.references :reward, :null => false
 
       t.timestamps
+
     end
+
+    add_index :quests, :reward_id
   end
 
   def self.down
