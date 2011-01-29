@@ -5,9 +5,6 @@ class Datapoint < ActiveRecord::Base
 
   attr_protected :quest_id, :user_id, :location_source
 
-  validates_presence_of :latitude, :longitude, :location_source, :quest_id,
-                        :user_id
-
   attr_accessor :address
   geocoded_by :address
   before_validation :set_coordinates
