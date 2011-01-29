@@ -1,4 +1,6 @@
 DungeonsAndData::Application.routes.draw do
+  root :to => 'pages#index'
+
   resources :quests
 
   # The priority is based upon order of creation:
