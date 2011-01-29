@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110129185649) do
+ActiveRecord::Schema.define(:version => 20110129210606) do
 
   create_table "comments", :force => true do |t|
     t.text     "text",       :null => false
@@ -43,16 +43,13 @@ ActiveRecord::Schema.define(:version => 20110129185649) do
     t.text     "description",        :null => false
     t.integer  "minimum_datapoints", :null => false
     t.time     "expired_at",         :null => false
-    t.integer  "reward_id",          :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "quests", ["reward_id"], :name => "index_quests_on_reward_id"
-
   create_table "rewards", :force => true do |t|
     t.integer  "experience", :null => false
-    t.integer  "quest_id",   :null => false
+    t.integer  "quest_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

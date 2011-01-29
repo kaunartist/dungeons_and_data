@@ -6,9 +6,10 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-User.create(:username => 'konig', :email => 'konig@test.com', :password => 'testing', :experience => 87, :title => 'King of Data')
-User.create(:username => 'jello', :email => 'jello@test.com', :password => 'testing', :experience => 248, :title => 'Drunken Rogue')
+User.create(:name => 'konig', :email => 'konig@test.com', :password => 'testing', :experience => 87, :title => 'King of Data')
+User.create(:name => 'jello', :email => 'jello@test.com', :password => 'testing', :experience => 248, :title => 'Drunken Rogue')
 
 r = Reward.new(:experience => 50)
-Quest.create(:title => 'Water Fountains', :description => 'Come on, man!', :minimum_datapoints => 100, :reward_id => r)
+q = Quest.create(:title => 'Water Fountains', :description => 'Come on, man!', :minimum_datapoints => 100, :reward_id => r, :expired_at => Time.now)
+r.quest_id = q.id
 r.save

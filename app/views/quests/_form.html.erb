@@ -14,7 +14,7 @@
   <%= f.text_field :title, :value => "Title" %> <br/>
   <%= f.text_area :description, :value => "Description" %> <br/>
   <%= f.label :minimum_datapoints %><%= f.text_field :minimum_datapoints, :value => "0" %> <br/>
-  <input id="quest_reward" name="quest[reward]" type="range" min="0" max=<%= "#{@user.experience}" %> step="10" value="0"><span id="reward_total">0</span>
+  <%= f.label :reward %><input id="quest_reward" name="quest[reward]" type="range" min="0" max=<%= "#{@user.experience}" %> step="10" value="0"><span id="reward_total">0</span>
 
   <div class="actions">
     <%= f.submit %>

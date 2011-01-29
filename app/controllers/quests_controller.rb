@@ -10,6 +10,13 @@ class QuestsController < InheritedResources::Base
 
   def new
     @user = User.first
-    @quest = Quest.new
+    new!
+  end
+
+  def create
+    @reward = Reward.create(:experience => params[:quest][:reward])
+    time = Time.now + 10.days
+    @quest = Quest.new(params[:quest].merge!(:reward => @reward, :expired_at => time))
+    create!
   end
 end
